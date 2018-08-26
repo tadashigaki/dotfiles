@@ -1,5 +1,5 @@
-export PATH=$PATH:$HOME/.cask/bin
-export PATH=$PATH:$HOME/.nodebrew/current/bin
+export PATH=$HOME/.cask/bin:$PATH
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 HISTSIZE=100000
 HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '

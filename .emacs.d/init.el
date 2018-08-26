@@ -20,6 +20,9 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 (set-language-environment 'Japanese)
 (set-default-coding-systems 'utf-8)
 (set-keyboard-coding-system 'utf-8)
@@ -119,15 +122,13 @@
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
 (setq org-use-speed-commands t)
-(setq org-agenda-files '("~/Documents/org/work.org"))
+(setq org-agenda-files '("~/gtd/work.org"))
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-(setq open-junk-file-format "~/Documents/junk/%Y%m%d_%H%M%S.")
+(setq open-junk-file-format "~/junk/%Y%m%d_%H%M%S.")
 (global-set-key (kbd "C-x j") 'open-junk-file)
 
 (require 'typescript-mode)
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (setq typescript-indent-level 2)
-
-(require 'hello-world)
