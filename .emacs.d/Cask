@@ -36,3 +36,4 @@
 (depends-on "web-mode")
 (depends-on "markdown-mode")
 (depends-on "typescript-mode")
+(depends-on "dockerfile-mode")

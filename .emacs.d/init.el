@@ -20,6 +20,9 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 (set-language-environment 'Japanese)
 (set-default-coding-systems 'utf-8)
 (set-keyboard-coding-system 'utf-8)
@@ -130,4 +133,8 @@
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (setq typescript-indent-level 2)
 
-(require 'hello-world)
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))

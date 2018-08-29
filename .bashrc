@@ -9,9 +9,10 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
-# ls color
+# aliases
 alias ls='ls -G'
 alias ll='ls -GlaF'
+alias ij='open -b com.jetbrains.intellij'
 
 # git ps1
 source /usr/local/etc/bash_completion.d/git-prompt.sh
