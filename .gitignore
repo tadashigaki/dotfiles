@@ -1,0 +1,5 @@
+.emacs.d/auto-save-list
+.emacs.d/.cask
+.emacs.d/el-get
+.emacs.d/elisp
+.emacs.d/elpa

@@ -122,11 +122,11 @@
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
 (setq org-use-speed-commands t)
-(setq org-agenda-files '("~/Documents/org/work.org"))
+(setq org-agenda-files '("~/gtd/work.org"))
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-(setq open-junk-file-format "~/Documents/junk/%Y%m%d_%H%M%S.")
+(setq open-junk-file-format "~/junk/%Y%m%d_%H%M%S.")
 (global-set-key (kbd "C-x j") 'open-junk-file)
 
 (require 'typescript-mode)
