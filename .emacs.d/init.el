@@ -9,18 +9,7 @@
          (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
              (normal-top-level-add-subdirs-to-load-path))))))
 
-(add-to-load-path "elpa")
-(add-to-load-path "elisp")
- 
-(add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-(require 'cask "~/.cask/cask.el")
+(require 'cask)
 (cask-initialize)
 
 (set-language-environment 'Japanese)
