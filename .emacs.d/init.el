@@ -100,7 +100,12 @@
 
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-c") 'helm-M-x)
-(global-set-key (kbd "C-x C-r") 'replace-string)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x C-r") 'helm-recentf)
+(setq recentf-max-saved-items 2000)
+(setq recentf-auto-cleanup 'never)
+(recentf-mode 1)
 (global-set-key (kbd "<f5>") 'quickrun)
 (global-unset-key (kbd "<C-down-mouse-1>"))
 
@@ -130,3 +135,22 @@
 
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.ya?ml$'" . yaml-mode))
+
+;; (require 'company)
+;; (global-company-mode)
+;; (setq company-idle-delay 0)
+;; (setq company-minimum-prefix-length 2)
+;; (setq company-selection-wrap-around t)
+
+(setq ace-jump-mode-move-keys
+      (append "asdfghjkl;:]qwertyuiop@zxcvbnm,." nil))
+(setq ace-jump-word-mode-use-query-char nil)
+(global-set-key (kbd "C-:") 'ace-jump-char-mode)
+(global-set-key (kbd "C-;") 'ace-jump-word-mode)
+(global-set-key (kbd "C-M-;") 'ace-jump-line-mode);
+(setq ace-jump-mode-move-keys
+      (append "asdfghjkl;:]qwertyuiop@zxcvbnm,." nil))
+(setq ace-jump-word-mode-use-query-char nil)
+(global-set-key (kbd "C-:") 'ace-jump-char-mode)
+(global-set-key (kbd "C-;") 'ace-jump-word-mode)
+(global-set-key (kbd "C-M-;") 'ace-jump-line-mode)

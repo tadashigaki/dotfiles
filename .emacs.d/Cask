@@ -38,3 +38,6 @@
 (depends-on "typescript-mode")
 (depends-on "dockerfile-mode")
 (depends-on "yaml-mode")
+(depends-on "company")
+(depends-on "ace-jump-mode")
+(depends-on "expand-region")
