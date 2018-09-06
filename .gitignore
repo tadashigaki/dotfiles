@@ -3,3 +3,6 @@
 .emacs.d/el-get
 .emacs.d/elisp
 .emacs.d/elpa
+.emacs.d/eshell
+.emacs.d/recentf
+.emacs.d/session*
