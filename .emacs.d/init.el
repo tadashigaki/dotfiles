@@ -1,3 +1,13 @@
+;;; init.el --- tadashigaki's custom emacs config
+
+;; Author: <tadashi.akama@gmail.com>
+;; Keyword: init
+
+;;; Commentary:
+
+;;
+
+;;; Code:
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
@@ -73,6 +83,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(package-selected-packages
    (quote
     (neotree web-mode typescript-mode open-junk-file helm-descbinds helm))))
@@ -89,6 +102,7 @@
 
 (global-set-key (kbd "C-c ;") 'helm-for-files)
 (global-set-key (kbd "C-c h") 'helm-mini)
+(global-set-key (kbd "C-M-O") 'helm-occur)
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
@@ -138,11 +152,11 @@
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.ya?ml$'" . yaml-mode))
 
-;; (require 'company)
-;; (global-company-mode)
-;; (setq company-idle-delay 0)
-;; (setq company-minimum-prefix-length 2)
-;; (setq company-selection-wrap-around t)
+(require 'company)
+(global-company-mode)
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 2)
+(setq company-selection-wrap-around t)
 
 (setq ace-jump-mode-move-keys
       (append "asdfghjkl;:]qwertyuiop@zxcvbnm,." nil))
@@ -150,9 +164,46 @@
 (global-set-key (kbd "C-:") 'ace-jump-char-mode)
 (global-set-key (kbd "C-;") 'ace-jump-word-mode)
 (global-set-key (kbd "C-M-;") 'ace-jump-line-mode);
-(setq ace-jump-mode-move-keys
-      (append "asdfghjkl;:]qwertyuiop@zxcvbnm,." nil))
-(setq ace-jump-word-mode-use-query-char nil)
-(global-set-key (kbd "C-:") 'ace-jump-char-mode)
-(global-set-key (kbd "C-;") 'ace-jump-word-mode)
-(global-set-key (kbd "C-M-;") 'ace-jump-line-mode)
+
+(require 'yasnippet)
+(yas-global-mode 1)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets"
+        ))
+
+(require 'ag)
+(setq ag-highlight-search t)
+(setq ag-reuse-window t)
+
+(add-hook 'ag-mode-hook '(lambda
+                           (require 'wgrep-ag)
+                           (setq wgrep-auto-save-buffer t)
+                           (setq wgrep-enable-key "r")
+                           (wgrep-ag-setup)))
+
+(require 'diminish)
+(column-number-mode t)
+(line-number-mode t)
+
+(require 'json-mode)
+(add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
+
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(eval-after-load 'flycheck
+  '(custom-set-variables
+    '(flycheck-disabled-checkers '(javascript-jshint javascript-jscs))
+    ))
+
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(setq js2-include-browser-externs nil)
+(setq js2-mode-show-parse-errors nil)
+(setq js2-mode-show-strict-warnings nil)
+(setq js2-highlight-external-variables nil)
+(setq js2-include-jslint-globals nil)
+
+(provide 'init)
+;;; init.el ends here
+
+

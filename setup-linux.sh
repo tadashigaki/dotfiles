@@ -15,3 +15,15 @@ cask install
 
 # nodebrew
 curl -L git.io/nodebrew | perl - setup
+
+# gtags
+apt-get install exuberant-ctags
+pip install pygments
+apt-get install global
+
+# ag
+apt-get install silversearcher-ag
+
+# eslint
+npm i -g eslint
+ln -sfv $HOME/dotfiles/.eslintrc $HOME
