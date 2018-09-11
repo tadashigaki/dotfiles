@@ -203,7 +203,8 @@
 (setq js2-highlight-external-variables nil)
 (setq js2-include-jslint-globals nil)
 
+(setq initial-frame-alist
+      '((top . 0) (left . 0) (width . 120) (height . 100)))
+
 (provide 'init)
 ;;; init.el ends here
-
-
