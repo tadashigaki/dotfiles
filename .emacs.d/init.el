@@ -206,5 +206,9 @@
 (setq initial-frame-alist
       '((top . 0) (left . 0) (width . 120) (height . 100)))
 
+(show-paren-mode t)
+(global-hl-line-mode t)
+(setq show-paren-style 'mixed)
+
 (provide 'init)
 ;;; init.el ends here
