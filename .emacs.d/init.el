@@ -48,7 +48,7 @@
 (set-cursor-color "Gray")
 ;; (set-face-attribute 'default nil :family "MeiryoKe_Console" :height 150)
 ;; (set-face-attribute 'default nil :family "Inconsolata" :height 150)
-(set-default-font "Inconsolata-12")
+(set-frame-font "Inconsolata-12")
 (set-face-font 'variable-pitch "Inconsolata-12")
 (set-frame-parameter (selected-frame) 'alpha '(75 . 50))
 (add-to-list 'default-frame-alist '(alpha . (75 . 50)))
@@ -208,7 +208,6 @@
 
 (show-paren-mode t)
 (global-hl-line-mode t)
-(setq show-paren-style 'mixed)
 
 (provide 'init)
 ;;; init.el ends here
