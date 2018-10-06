@@ -20,9 +20,16 @@ fi
 # --------------------
 # ls Aliases
 # --------------------
-alias ls='ls -G'
-alias ll='ls -GlF'
-alias la='ls -GaF'
+alias ls='ls -G --color=auto'
+alias ll='ls -GlF --color=auto'
+alias la='ls -GaF --color=auto'
+
+# --------------------
+# grep Aliases
+# --------------------
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # --------------------
 # Intelli J Aliase
@@ -73,3 +80,29 @@ source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='\[\033[37m\][\[\033[36m\]\u\[\033[37m\]@\h \[\033[32m\]\W\[\033[37m\]]\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+
+# --------------------
+# tmux
+# --------------------
+if [ "$SHLVL" = 1 ]; then tmux attach || tmux new; fi
+export TERM=xterm-256color
+
+# --------------------
+# evn
+# --------------------
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;36m") \
+        LESS_TERMCAP_md=$(printf "\e[1;36m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+        man "$@"
+}
+
+# --------------------
+# GOPATH
+# --------------------
+export GOPATH=$HOME/.go
