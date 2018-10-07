@@ -103,6 +103,9 @@ man() {
 }
 
 # --------------------
-# GOPATH
+# GOLANG
 # --------------------
+export PATH=/usr/bin/go/bin:$PATH
 export GOPATH=$HOME/.go
+export GOBIN=$GOPATH/bin
+export GO15VENDOREXPERIMENT=1
