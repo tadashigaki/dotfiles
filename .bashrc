@@ -20,16 +20,16 @@ fi
 # --------------------
 # ls Aliases
 # --------------------
-alias ls='ls -G --color=auto'
-alias ll='ls -GlF --color=auto'
-alias la='ls -GaF --color=auto'
+alias ls='ls -G'
+alias ll='ls -GlF'
+alias la='ls -GaF'
 
 # --------------------
 # grep Aliases
 # --------------------
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+# alias grep='grep --color=auto'
+# alias fgrep='fgrep --color=auto'
+# alias egrep='egrep --color=auto'
 
 # --------------------
 # Intelli J Aliase
