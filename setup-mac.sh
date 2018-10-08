@@ -13,6 +13,7 @@ brew install jq
 brew install go
 brew install telnet
 brew install nodebrew
+brew install tig
 
 brew tap caskroom/cask
 brew cask install emacs
