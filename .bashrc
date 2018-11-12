@@ -105,7 +105,8 @@ man() {
 # --------------------
 # GOLANG
 # --------------------
-export PATH=/usr/bin/go/bin:$PATH
+export PATH=/usr/local/bin/go/bin:$PATH
 export GOPATH=$HOME/.go
 export GOBIN=$GOPATH/bin
+export PATH=$GOBIN:$PATH
 export GO15VENDOREXPERIMENT=1

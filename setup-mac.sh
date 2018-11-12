@@ -21,3 +21,7 @@ brew cask install google-chrome
 brew cask install google-hangouts
 brew cask install docker
 brew cask install spotify
+
+curl https://sdk.cloud.google.com | bash
+exec -l $SHELL
+gcloud init
