@@ -14,6 +14,8 @@ brew install go
 brew install telnet
 brew install nodebrew
 brew install tig
+brew uninstall grep
+brew intall grep
 
 brew tap caskroom/cask
 brew cask install emacs
