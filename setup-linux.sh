@@ -42,3 +42,6 @@ cd peco
 glide install
 go build cmd/peco/peco.go
 sudo cp peco /usr/bin/go/bin/
+
+# rust
+curl https://sh.rustup.rs -sSf | sh

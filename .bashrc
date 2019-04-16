@@ -3,6 +3,7 @@
 # --------------------
 export PATH=$HOME/.cask/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 
 # --------------------
 # hist
