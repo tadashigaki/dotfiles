@@ -209,5 +209,9 @@
 (show-paren-mode t)
 (global-hl-line-mode t)
 
+(require 'go-mode)
+(require 'company-go)
+(add-hook 'go-mode-hook 'company-mode)
+
 (provide 'init)
 ;;; init.el ends here

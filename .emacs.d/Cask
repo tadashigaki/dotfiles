@@ -48,3 +48,5 @@
 (depends-on "diminish")
 (depends-on "js2-mode")
 (depends-on "json-mode")
+(depends-on "go-mode")
+(depends-on "company-go")
