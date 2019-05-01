@@ -13,6 +13,11 @@ brew install jq
 brew install go
 brew install telnet
 brew install nodebrew
+brew install tig
+brew uninstall grep
+brew install grep
+brew install terraform
+brew install kubenetes-cli
 
 brew tap caskroom/cask
 brew cask install emacs
@@ -20,3 +25,8 @@ brew cask install google-chrome
 brew cask install google-hangouts
 brew cask install docker
 brew cask install spotify
+brew cask install minikube
+
+curl https://sdk.cloud.google.com | bash
+exec -l $SHELL
+gcloud init

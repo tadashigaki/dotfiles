@@ -3,6 +3,7 @@
 # --------------------
 export PATH=$HOME/.cask/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 
 # --------------------
 # hist
@@ -20,16 +21,17 @@ fi
 # --------------------
 # ls Aliases
 # --------------------
-alias ls='ls -G --color=auto'
-alias ll='ls -GlF --color=auto'
-alias la='ls -GaF --color=auto'
+alias ls='ls -G'
+alias ll='ls -GlF'
+alias la='ls -GaF'
 
 # --------------------
 # grep Aliases
 # --------------------
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+# alias grep='grep --color=auto'
+# alias fgrep='fgrep --color=auto'
+# alias egrep='egrep --color=auto'
+alias grep='ggrep'
 
 # --------------------
 # Intelli J Aliase
@@ -105,7 +107,8 @@ man() {
 # --------------------
 # GOLANG
 # --------------------
-export PATH=/usr/bin/go/bin:$PATH
+export PATH=/usr/local/bin/go/bin:$PATH
 export GOPATH=$HOME/.go
 export GOBIN=$GOPATH/bin
+export PATH=$GOBIN:$PATH
 export GO15VENDOREXPERIMENT=1
