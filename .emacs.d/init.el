@@ -77,7 +77,6 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -216,6 +215,14 @@
 
 (when (require 'multi-term nil t)
   (setq multi-term-program "/bin/sh"))
+
+(defun elisp-mode-hooks ()
+  "lisp-mode-hooks"
+  (when (require 'eldoc nil t)
+    (setq eldoc-idle-delay 0.2)
+    (setq eldoc-echo-area-use-multiline-p t)
+    (turn-on-eldoc-mode t))
+(add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
 
 (provide 'init)
 ;;; init.el ends here
