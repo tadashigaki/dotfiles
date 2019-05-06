@@ -214,5 +214,8 @@
 (require 'company-go)
 (add-hook 'go-mode-hook 'company-mode)
 
+(when (require 'multi-term nil t)
+  (setq multi-term-program "/bin/sh"))
+
 (provide 'init)
 ;;; init.el ends here
