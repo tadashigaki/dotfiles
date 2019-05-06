@@ -14,7 +14,7 @@ HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
 # --------------------
 # bash_completion
 # --------------------
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
+if [ "$(uname)" == "Darwin" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
@@ -78,10 +78,12 @@ function glf() { git log --all --grep="$1"; }
 # --------------------
 # GIT PS1
 # --------------------
-source /usr/local/etc/bash_completion.d/git-prompt.sh
-source /usr/local/etc/bash_completion.d/git-completion.bash
-GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\[\033[37m\][\[\033[36m\]\u\[\033[37m\]@\h \[\033[32m\]\W\[\033[37m\]]\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+if [ "$(uname)" == "Darwin" ]; then
+    source /usr/local/etc/bash_completion.d/git-prompt.sh
+    source /usr/local/etc/bash_completion.d/git-completion.bash
+    GIT_PS1_SHOWDIRTYSTATE=true
+    export PS1='\[\033[37m\][\[\033[36m\]\u\[\033[37m\]@\h \[\033[32m\]\W\[\033[37m\]]\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+fi
 
 # --------------------
 # tmux
