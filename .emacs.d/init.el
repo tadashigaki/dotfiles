@@ -8,6 +8,8 @@
 ;;
 
 ;;; Code:
+(delete-file "~/Library/Colors/Emacs.clr")
+
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
@@ -223,6 +225,11 @@
     (setq eldoc-echo-area-use-multiline-p t)
     (turn-on-eldoc-mode t))
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
+
+(require 'projectile)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(projectile-mode +1)
 
 (provide 'init)
 ;;; init.el ends here

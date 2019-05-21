@@ -50,3 +50,4 @@
 (depends-on "go-mode")
 (depends-on "company-go")
 (depends-on "multi-term")
+(depends-on "projectile")
