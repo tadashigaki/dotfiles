@@ -51,3 +51,4 @@
 (depends-on "company-go")
 (depends-on "multi-term")
 (depends-on "projectile")
+(depends-on "lsp-mode")

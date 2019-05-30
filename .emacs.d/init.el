@@ -231,5 +231,21 @@
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (projectile-mode +1)
 
+(use-package lsp-mode
+  :commands lsp)
+(use-package company-lsp)
+(use-package lsp-ui
+  :config
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+
+(use-package company
+  :config
+  (global-company-mode)
+  (push 'company-lsp company-backends))
+
+(use-package python-mode
+  :config
+  (add-hook 'python-mode-hook #'lsp))
+
 (provide 'init)
 ;;; init.el ends here

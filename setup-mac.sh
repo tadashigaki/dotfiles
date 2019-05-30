@@ -18,6 +18,7 @@ brew uninstall grep
 brew install grep
 brew install terraform
 brew install kubenetes-cli
+brew install tfenv
 
 brew tap caskroom/cask
 brew cask install emacs
