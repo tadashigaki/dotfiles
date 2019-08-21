@@ -110,7 +110,7 @@ man() {
 # GOLANG
 # --------------------
 export PATH=/usr/local/bin/go/bin:$PATH
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
 export GO15VENDOREXPERIMENT=1
