@@ -21,6 +21,7 @@ brew install kubenetes-cli
 brew install tfenv
 brew install fish
 brew install gibo
+brew install ngrok
 
 brew tap caskroom/cask
 brew cask install emacs
