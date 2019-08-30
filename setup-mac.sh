@@ -34,3 +34,5 @@ brew cask install minikube
 curl https://sdk.cloud.google.com | bash
 exec -l $SHELL
 gcloud init
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
