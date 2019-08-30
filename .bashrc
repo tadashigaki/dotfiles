@@ -114,3 +114,5 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
 export GO15VENDOREXPERIMENT=1
+
+complete -C /usr/local/bin/tfschema tfschema
