@@ -20,5 +20,11 @@ python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
 
+
 " # vim-markdown
 syntax enable
+
+
+" # General
+set number
+autocmd ColorScheme * highlight LineNr ctermfg=236
