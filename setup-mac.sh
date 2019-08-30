@@ -16,7 +16,6 @@ brew install nodebrew
 brew install tig
 brew uninstall grep
 brew install grep
-brew install terraform
 brew install kubenetes-cli
 brew install tfenv
 brew install fish
