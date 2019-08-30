@@ -22,6 +22,7 @@ brew install tfenv
 brew install fish
 brew install gibo
 brew install ngrok
+brew install minamijoyo/tfschema/tfschema
 
 brew tap caskroom/cask
 brew cask install emacs
