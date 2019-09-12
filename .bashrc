@@ -71,6 +71,11 @@ alias gstp='git stash pop'
 alias gstd='git stash drop'
 
 # --------------------
+# Terraform Aliases
+# --------------------
+alias tf='terraform'
+
+# --------------------
 # Git Function
 # --------------------
 function glf() { git log --all --grep="$1"; }
