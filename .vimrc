@@ -28,4 +28,5 @@ syntax enable
 
 " # General
 set number
+set clipboard+=unnamed
 autocmd ColorScheme * highlight LineNr ctermfg=236
