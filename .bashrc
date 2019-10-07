@@ -4,6 +4,7 @@
 export PATH=$HOME/.cask/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
+export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
 
 # --------------------
 # hist
