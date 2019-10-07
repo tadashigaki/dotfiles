@@ -16,7 +16,7 @@ brew install nodebrew
 brew install tig
 brew uninstall grep
 brew install grep
-brew install kubenetes-cli
+brew install kubectl
 brew install tfenv
 brew install fish
 brew install gibo
