@@ -8,8 +8,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
+filetype plugin plugin on
 filetype plugin indent on
 
 
@@ -30,3 +32,4 @@ syntax enable
 set number
 set clipboard+=unnamed
 autocmd ColorScheme * highlight LineNr ctermfg=236
+
