@@ -32,5 +32,6 @@ syntax enable
 set number
 set clipboard+=unnamed
 set backspace=indent,eol,start
+set shortmess+=I
 autocmd ColorScheme * highlight LineNr ctermfg=236
 
