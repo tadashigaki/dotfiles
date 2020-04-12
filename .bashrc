@@ -116,9 +116,11 @@ man() {
 # GOLANG
 # --------------------
 export PATH=/usr/local/bin/go/bin:$PATH
+export GOENV_ROOT=$HOME/.goenv
+export PATH=$GOENV_ROOT/bin:$PATH
+eval "$(goenv init -)"
 export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export PATH=$GOBIN:$PATH
+export PATH=$GOPATH/bin:$PATH
 export GO15VENDOREXPERIMENT=1
 
 complete -C /usr/local/bin/tfschema tfschema
