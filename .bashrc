@@ -98,7 +98,7 @@ if [ "$SHLVL" = 1 ]; then tmux attach || tmux new; fi
 export TERM=xterm-256color
 
 # --------------------
-# evn
+# env
 # --------------------
 man() {
     env \
