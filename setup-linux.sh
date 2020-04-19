@@ -1,6 +1,8 @@
 #!/bin/bash
 ln -sfv $HOME/dotfiles/.bash_profile $HOME
 ln -sfv $HOME/dotfiles/.bashrc $HOME
+ln -sfv $HOME/dotfiles/.zprofile $HOME
+ln -sfv $HOME/dotfiles/.zshrc $HOME
 source $HOME/.bash_profile
 
 # emacs

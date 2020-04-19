@@ -22,6 +22,9 @@ brew install fish
 brew install gibo
 brew install ngrok
 brew install minamijoyo/tfschema/tfschema
+brew install zsh-completions
+brew install zsh-autosuggestions
+brew install zsh-syntax-highlighting
 
 brew tap caskroom/cask
 brew cask install emacs
