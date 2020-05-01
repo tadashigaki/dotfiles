@@ -137,6 +137,11 @@ if [ -f $HOME'/google-cloud-sdk/path.zsh.inc' ]; then . $HOME'/google-cloud-sdk/
 if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then . $HOME'/google-cloud-sdk/completion.zsh.inc'; fi
 
 # --------------------
+# MySQL Client
+# --------------------
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+# --------------------
 # ZSH
 # --------------------
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
