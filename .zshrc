@@ -128,6 +128,15 @@ export GO15VENDOREXPERIMENT=1
 # complete -o nospace -C /usr/local/bin/tfschema tfschema
 
 # --------------------
+# google-cloud-sdk
+# --------------------
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f $HOME'/google-cloud-sdk/path.zsh.inc' ]; then . $HOME'/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then . $HOME'/google-cloud-sdk/completion.zsh.inc'; fi
+
+# --------------------
 # ZSH
 # --------------------
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
