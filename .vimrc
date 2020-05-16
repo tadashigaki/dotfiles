@@ -9,23 +9,21 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 filetype plugin plugin on
 filetype plugin indent on
 
 
-" # powerline
-set laststatus=2
-set showtabline=2
-set t_Co=256
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-
-
 " # vim-markdown
 syntax enable
+
+
+" # vim-airline
+" :help airline
+let g:airline#extensions#tabline#enabled = 1
 
 
 " # General
