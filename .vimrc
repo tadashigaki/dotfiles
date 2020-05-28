@@ -27,7 +27,10 @@ let g:airline#extensions#tabline#enabled = 1
 
 
 " # General
+filetype plugin indent on
+set encoding=utf-8
 set number
+set clipboard=unnamedplus
 set clipboard+=unnamed
 set backspace=indent,eol,start
 set shortmess+=I
