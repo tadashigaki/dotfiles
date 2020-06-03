@@ -144,6 +144,11 @@ export CLOUDSDK_PYTHON=/usr/bin/python3
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 # --------------------
+# anyenv
+# --------------------
+eval "$(anyenv init -)"
+
+# --------------------
 # ZSH
 # --------------------
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
