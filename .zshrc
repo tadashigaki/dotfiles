@@ -159,3 +159,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -Uz compinit
 compinit -u
 
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/Cellar/tfenv/1.0.1/versions/0.12.29/terraform terraform

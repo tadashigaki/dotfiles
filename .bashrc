@@ -15,8 +15,8 @@ HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
 # --------------------
 # bash_completion
 # --------------------
-if [ "$(uname)" == "Darwin" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
-  source $(brew --prefix)/etc/bash_completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+	$(brew --prefix)/etc/bash_completion
 fi
 
 # --------------------
@@ -124,3 +124,5 @@ export PATH=$GOPATH/bin:$PATH
 export GO15VENDOREXPERIMENT=1
 
 complete -C /usr/local/bin/tfschema tfschema
+
+complete -C /usr/local/Cellar/tfenv/1.0.1/versions/0.12.29/terraform terraform
