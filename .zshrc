@@ -144,6 +144,11 @@ export CLOUDSDK_PYTHON=/usr/bin/python3
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 # --------------------
+# Rust
+# --------------------
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# --------------------
 # anyenv
 # --------------------
 eval "$(anyenv init -)"
