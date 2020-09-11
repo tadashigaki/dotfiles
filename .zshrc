@@ -151,7 +151,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # --------------------
 # anyenv
 # --------------------
-eval "$(anyenv init -)"
+eval "$(anyenv init -)
+export PATH="$HOME/.anyenv/bin:$PATH""
 
 # --------------------
 # ZSH
