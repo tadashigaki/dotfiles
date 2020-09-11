@@ -18,5 +18,15 @@
 (tool-bar-mode -1) ; hide tool bar
 (toggle-scroll-bar -1)  ; hide scroll bar
 
+(require 'package)
+  
+;; HTTP
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/") t)
+  
+(package-initialize)
+
 (provide 'init)
 ;;; init.el ends here
