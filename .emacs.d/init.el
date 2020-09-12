@@ -29,6 +29,14 @@
 (setq create-lockfiles nil) ; not make lock file
 
 ;;;
+;;; theme
+;;;
+
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/")
+(load-theme 'solarized-dark t)
+
+;;;
 ;;; package repositories
 ;;;
 
@@ -52,7 +60,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(helm)))
+ '(package-selected-packages '(solarized-theme helm)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
