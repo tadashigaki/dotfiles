@@ -8,11 +8,6 @@
 ;; 
 
 ;;; Code:
-
-;;;
-;;; basic configurations
-;;;
-
 (setq c-basic-offset 4) ; indents 4 chars                                                                                                              
 (setq tab-width 4)          ; 4 char wide for TAB
 (setq indent-tabs-mode nil) ; force use of spaces
@@ -22,15 +17,6 @@
 (menu-bar-mode -1) ; hide menu bar
 (tool-bar-mode -1) ; hide tool bar
 (toggle-scroll-bar -1)  ; hide scroll bar
-(setq initial-scratch-message "") ; hide scratch message 
-
-(setq auto-save-default nil) ; not make auto safe file
-(setq auto-save-list-file-prefix nil) ; not make auto save list
-(setq create-lockfiles nil) ; not make lock file
-
-;;;
-;;; package repositories
-;;;
 
 (require 'package)
   
@@ -42,11 +28,8 @@
   
 (package-initialize)
 
-
-;;;
-;;; helm
-;;;
-
+(provide 'init)
+;;; init.el ends here
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -59,10 +42,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
-(helm-mode 1)
-
-(provide 'init)
-;;; init.el ends here
