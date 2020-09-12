@@ -28,6 +28,8 @@
 (setq auto-save-list-file-prefix nil) ; not make auto save list
 (setq create-lockfiles nil) ; not make lock file
 
+(global-display-line-numbers-mode) ; show line numbers
+
 ;;;
 ;;; theme
 ;;;
