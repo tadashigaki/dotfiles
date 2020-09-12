@@ -68,6 +68,12 @@
          ("C-x C-c" . helm-M-x)
          ("C-x C-r" . helm-recentf)))
 
+;;;
+;;; magit
+;;;
+
+(use-package magit
+  :bind  ("C-x g" . magit-status))
 
 (provide 'init)
 ;;; init.el ends here
