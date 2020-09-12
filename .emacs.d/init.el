@@ -8,6 +8,11 @@
 ;; 
 
 ;;; Code:
+
+;;;
+;;; basic configurations
+;;;
+
 (setq c-basic-offset 4) ; indents 4 chars                                                                                                              
 (setq tab-width 4)          ; 4 char wide for TAB
 (setq indent-tabs-mode nil) ; force use of spaces
@@ -18,6 +23,11 @@
 (tool-bar-mode -1) ; hide tool bar
 (toggle-scroll-bar -1)  ; hide scroll bar
 
+
+;;;
+;;; package repositories
+;;;
+
 (require 'package)
   
 ;; HTTP
@@ -27,6 +37,11 @@
 (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/") t)
   
 (package-initialize)
+
+
+;;;
+;;; helm
+;;;
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
