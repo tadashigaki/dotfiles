@@ -91,13 +91,21 @@
   (projectile-mode +1))
 
 
+;;;
+;;; neotree
+;;;
+
+(use-package neotree
+  :bind (("<f8>" . neotree-toggle)))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(projectile magit use-package lsp-mode rust-mode solarized-theme helm)))
+   '(neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
+ '(projectile-mode t nil (projectile)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
