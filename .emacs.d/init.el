@@ -27,6 +27,7 @@
 (setq auto-save-default nil) ; not make auto safe file
 (setq auto-save-list-file-prefix nil) ; not make auto save list
 (setq create-lockfiles nil) ; not make lock file
+(setq make-backup-files nil) ; not make backup file
 
 (global-display-line-numbers-mode) ; show line numbers
 
