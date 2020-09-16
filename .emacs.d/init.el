@@ -53,14 +53,12 @@
   
 (package-initialize)
 
-
 ;;;
 ;;; use-package
 ;;;
 
 (eval-when-compile
   (require 'use-package))
-
 
 ;;;
 ;;; helm
@@ -78,7 +76,6 @@
 (use-package magit
   :bind ("C-x g" . magit-status))
 
-
 ;;;
 ;;; projectile
 ;;; 
@@ -90,7 +87,6 @@
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1))
 
-
 ;;;
 ;;; neotree
 ;;;
@@ -98,13 +94,21 @@
 (use-package neotree
   :bind (("<f8>" . neotree-toggle)))
 
+;;;
+;;; which-key
+;;;
+
+(use-package which-key
+  :config
+  (which-key-mode))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
+   '(which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
  '(projectile-mode t nil (projectile)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
