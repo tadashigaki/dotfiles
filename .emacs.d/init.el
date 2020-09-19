@@ -50,6 +50,7 @@
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/") t)
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
   
 (package-initialize)
 
@@ -87,20 +88,47 @@
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1))
 
-;;;
-;;; neotree
-;;;
+;;
+;; neotree
+;;
 
 (use-package neotree
   :bind (("<f8>" . neotree-toggle)))
 
-;;;
-;;; which-key
-;;;
+;;
+;; which-key
+;;
 
 (use-package which-key
   :config
   (which-key-mode))
+
+;;
+;; rustic
+;;
+
+(use-package rustic
+ :ensure t
+ :defer t
+ :init
+ (add-hook 'rustic-mode-hook
+ '(lambda ()
+ (racer-mode t)
+ (dumb-jump-mode t)
+ (highlight-symbol-mode t)
+ (rainbow-delimiters-mode t)
+ (smartparens-mode t)))
+  :mode ("\\.rs$" . rustic-mode)
+ :commands (rustic-mode)
+ :config
+ (use-package quickrun
+ :defer t
+ :ensure t)
+ (use-package racer
+ :defer t
+ :ensure t)
+ (use-package lsp-mode
+ :ensure t))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -108,7 +136,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
+   '(helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
  '(projectile-mode t nil (projectile)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
