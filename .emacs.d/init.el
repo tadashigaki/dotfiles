@@ -11,6 +11,8 @@
 
 ;; this enables this running method
 ;;   emacs -q -l ~/.debug.emacs.d/init.el
+
+;; <leaf-install-code>
 (eval-and-compile
   (when (or load-file-name byte-compile-current-file)
     (setq user-emacs-directory
@@ -40,137 +42,39 @@
     :config
     ;; initialize leaf-keywords.el
     (leaf-keywords-init)))
+;; </leaf-install-code>
 
-  ;; coustom configuration starts here
+;; custom configuration starts here
 
+(leaf leaf
+  :config
+  (leaf leaf-convert :ensure t)
+  (leaf leaf-tree
+    :ensure t
+    :custom ((imenu-list-size . 30)
+             (imenu-list-position . 'left))))
 
-;;
-;; theme
-;;
-
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/")
-(load-theme 'solarized-dark t)
-
-;;
-;; package repositories
-;;
-
-(require 'package)
-  
-;; HTTP
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/") t)
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
-  
-(package-initialize)
-
-;;
-;; use-package
-;;
-
-(eval-when-compile
-  (require 'use-package))
-
-;;
-;; helm
-;;
-
-(use-package helm
-  :bind (("M-x" . helm-M-x)
-         ("C-x C-c" . helm-M-x)
-         ("C-x C-r" . helm-recentf)))
-
-;;
-;; magit
-;;
-
-(use-package magit
-  :bind ("C-x g" . magit-status))
-
-;;
-;; projectile
-;;
-
-(use-package projectile
+(leaf macrostep
   :ensure t
-  :config
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (projectile-mode +1))
+  :bind (("C-c e" . macrostep-expand)))
 
-;;
-;; neotree
-;;
+(leaf ivy
+  :doc "Incremental Vertical completYon"
+  :req "emacs-24.5"
+  :tag "matching" "emacs>=24.5"
+  :added "2020-09-23"
+  :url "https://github.com/abo-abo/swiper"
+  :emacs>= 24.5
+  :ensure t)
 
-(use-package neotree
-  :bind (("<f8>" . neotree-toggle)))
-
-;;
-;; which-key
-;;
-
-(use-package which-key
-  :config
-  (which-key-mode))
-
-;;
-;; rustic
-;;
-
-(use-package rustic
- :ensure t
- :defer t
- :init
- (add-hook 'rustic-mode-hook
- '(lambda ()
- (racer-mode t)
- (dumb-jump-mode t)
- (highlight-symbol-mode t)
- (rainbow-delimiters-mode t)
- (smartparens-mode t)))
-  :mode ("\\.rs$" . rustic-mode)
- :commands (rustic-mode)
- :config
- (use-package quickrun
- :defer t
- :ensure t)
- (use-package racer
- :defer t
- :ensure t)
- (use-package lsp-mode
- :ensure t))
-
-;;
-;; ivy
-;;
-
-(use-package ivy
-  :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
-  ;; enable this if you want `swiper' to use it
-  (setq search-default-mode #'char-fold-to-regexp)
-  (global-set-key "\C-s" 'swiper)
-  (global-set-key (kbd "C-c C-r") 'ivy-resume)
-  (global-set-key (kbd "<f6>") 'ivy-resume)
-  (global-set-key (kbd "M-x") 'counsel-M-x)
-  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-  (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-  (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-  (global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
-  (global-set-key (kbd "<f1> l") 'counsel-find-library)
-  (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-  (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-  (global-set-key (kbd "C-c g") 'counsel-git)
-  (global-set-key (kbd "C-c j") 'counsel-git-grep)
-  (global-set-key (kbd "C-c k") 'counsel-ag)
-  (global-set-key (kbd "C-x l") 'counsel-locate)
-  (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-(define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
+(leaf magit
+  :doc "A Git porcelain inside Emacs."
+  :req "emacs-25.1" "async-20200113" "dash-20200524" "git-commit-20200516" "transient-20200601" "with-editor-20200522"
+  :tag "vc" "tools" "git" "emacs>=25.1"
+  :added "2020-09-23"
+  :emacs>= 25.1
+  :ensure t
+  :after git-commit with-editor)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -178,7 +82,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
+   '(macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
  '(projectile-mode t nil (projectile)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -209,6 +113,8 @@
 (setq make-backup-files nil) ; not make backup file
 
 (global-display-line-numbers-mode) ; show line numbers
+
+(setq byte-compile-warnings '(not cl-functions obsolete)) ; skip cl obsolete
 
 ;; End:
 
