@@ -65,7 +65,16 @@
   :added "2020-09-23"
   :url "https://github.com/abo-abo/swiper"
   :emacs>= 24.5
-  :ensure t)
+  :ensure t
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  :bind
+  ("M-x" . counsel-M-x)
+  ("C-x C-c" . counsel-M-x)
+  ("C-x C-f" . counsel-find-file)
+  ("C-x C-r" . counsel-recentf))
 
 (leaf magit
   :doc "A Git porcelain inside Emacs."
@@ -74,7 +83,25 @@
   :added "2020-09-23"
   :emacs>= 25.1
   :ensure t
+  :bind
+  ("C-x g" . magit-status)
   :after git-commit with-editor)
+
+(setq indent-tabs-mode nil) ; tab indent off
+(setq c-basic-offset 4) ; indents 4 chars
+(setq tab-width 4)          ; 4 char wide for TAB
+(setq indent-tabs-mode nil) ; force use of spaces
+(setq inhibit-splash-screen t) ; hide welcome screen
+(setq initial-scratch-message "") ; hide scratch message
+(setq auto-save-default nil) ; not make auto safe file
+(setq auto-save-list-file-prefix nil) ; not make auto save list
+(setq create-lockfiles nil) ; not make lock file
+(setq make-backup-files nil) ; not make backup file
+(setq byte-compile-warnings '(not cl-functions obsolete)) ; skip cl obsolete
+(menu-bar-mode -1) ; hide menu bar
+(tool-bar-mode -1) ; hide tool bar
+(toggle-scroll-bar -1)  ; hide scroll bar
+(global-display-line-numbers-mode) ; show line numbers
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -82,7 +109,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
+   '(counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
  '(projectile-mode t nil (projectile)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -94,28 +121,6 @@
 (provide 'init)
 
 ;; Local Variables:
-
-;; indent-tabs-mode: nil
-(setq c-basic-offset 4) ; indents 4 chars
-(setq tab-width 4)          ; 4 char wide for TAB
-(setq indent-tabs-mode nil) ; force use of spaces
-
-(setq inhibit-splash-screen t) ; hide welcome screen
-
-(menu-bar-mode -1) ; hide menu bar
-(tool-bar-mode -1) ; hide tool bar
-(toggle-scroll-bar -1)  ; hide scroll bar
-(setq initial-scratch-message "") ; hide scratch message
-
-(setq auto-save-default nil) ; not make auto safe file
-(setq auto-save-list-file-prefix nil) ; not make auto save list
-(setq create-lockfiles nil) ; not make lock file
-(setq make-backup-files nil) ; not make backup file
-
-(global-display-line-numbers-mode) ; show line numbers
-
-(setq byte-compile-warnings '(not cl-functions obsolete)) ; skip cl obsolete
-
 ;; End:
 
 ;;; init.el ends here
