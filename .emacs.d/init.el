@@ -52,11 +52,34 @@
   (leaf leaf-tree
     :ensure t
     :custom ((imenu-list-size . 30)
-             (imenu-list-position . 'left))))
+             (imenu-list-position . 'left)))
+  (leaf transient-dwim
+    :ensure t
+    :bind (("M-=" . transient-dwim-dispatch))))
 
 (leaf macrostep
   :ensure t
   :bind (("C-c e" . macrostep-expand)))
+
+(leaf startup
+  :custom
+  ((inhibit-startup-screen . t)
+   (inhibit-startup-message . t)
+   (inhibit-splash-screen . t)
+   (inhibit-startup-echo-area-message . t)
+   (initial-scratch-message . nil)
+   (tool-bar-mode . nil)
+   (menu-bar-mode . nil)
+   (scroll-bar-mode . nil)
+   (indent-tabs-mode . nil)
+   (trauncate-lines . t)
+   (tab-width . 4)
+   (auto-save-default . nil)
+   (auto-save-list-file-prefix . nil)
+   (create-lockfiles . nil)
+   (make-backup-files . nil))
+  :config
+  (global-display-line-numbers-mode))
 
 (leaf ivy
   :doc "Incremental Vertical completYon"
@@ -66,10 +89,11 @@
   :url "https://github.com/abo-abo/swiper"
   :emacs>= 24.5
   :ensure t
+  :custom
+  (ivy-use-virtual-buffers . t)
+  (ivy-count-format . "(%d/%d) ")
   :config
   (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "(%d/%d) ")
   :bind
   ("M-x" . counsel-M-x)
   ("C-x C-c" . counsel-M-x)
@@ -87,21 +111,29 @@
   ("C-x g" . magit-status)
   :after git-commit with-editor)
 
-(setq indent-tabs-mode nil) ; tab indent off
-(setq c-basic-offset 4) ; indents 4 chars
-(setq tab-width 4)          ; 4 char wide for TAB
-(setq indent-tabs-mode nil) ; force use of spaces
-(setq inhibit-splash-screen t) ; hide welcome screen
-(setq initial-scratch-message "") ; hide scratch message
-(setq auto-save-default nil) ; not make auto safe file
-(setq auto-save-list-file-prefix nil) ; not make auto save list
-(setq create-lockfiles nil) ; not make lock file
-(setq make-backup-files nil) ; not make backup file
-(setq byte-compile-warnings '(not cl-functions obsolete)) ; skip cl obsolete
-(menu-bar-mode -1) ; hide menu bar
-(tool-bar-mode -1) ; hide tool bar
-(toggle-scroll-bar -1)  ; hide scroll bar
-(global-display-line-numbers-mode) ; show line numbers
+(leaf flycheck
+  :doc "On-the-fly syntax checking"
+  :req "dash-2.12.1" "pkg-info-0.4" "let-alist-1.0.4" "seq-1.11" "emacs-24.3"
+  :tag "tools" "languages" "convenience" "emacs>=24.3"
+  :added "2020-09-24"
+  :url "http://www.flycheck.org"
+  :emacs>= 24.3
+  :ensure t
+  :init (global-flycheck-mode))
+
+(leaf doom-themes
+  :doc "an opinionated pack of modern color-themes"
+  :req "emacs-25.1" "cl-lib-0.5"
+  :tag "nova" "faces" "icons" "neotree" "theme" "one" "atom" "blue" "light" "dark" "emacs>=25.1"
+  :added "2020-09-25"
+  :url "https://github.com/hlissner/emacs-doom-theme"
+  :emacs>= 25.1
+  :ensure t
+  :config
+  (load-theme 'doom-one t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-neotree-config)
+  (doom-themes-org-config))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -109,7 +141,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
+   '(doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
  '(projectile-mode t nil (projectile)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
