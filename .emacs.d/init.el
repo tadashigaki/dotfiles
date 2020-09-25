@@ -61,6 +61,12 @@
   :ensure t
   :bind (("C-c e" . macrostep-expand)))
 
+(leaf paren
+  :doc "highlight matching paren"
+  :tag "builtin"
+  :custom ((show-paren-delay . 0.1))
+  :global-minor-mode show-paren-mode)
+
 (leaf startup
   :custom
   ((inhibit-startup-screen . t)
@@ -146,14 +152,57 @@
   (doom-themes-neotree-config)
   (doom-themes-org-config))
 
+(leaf doom-modeline
+  :doc "A minimal and modern mode-line"
+  :req "emacs-25.1" "all-the-icons-2.2.0" "shrink-path-0.2.0" "dash-2.11.0"
+  :tag "mode-line" "faces" "emacs>=25.1"
+  :added "2020-09-25"
+  :url "https://github.com/seagle0128/doom-modeline"
+  :emacs>= 25.1
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-buffer-file-name-style quote truncate-with-project)
+           (doom-modeline-icon . t)
+           (doom-modeline-major-mode-icon . t)
+           (doom-modeline-major-mode-color-icon . t)
+           (line-number-mode . 1)
+           (column-number-mode . 1))
+  :after (all-the-icons shrink-path))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-save-default nil)
+ '(auto-save-list-file-prefix nil)
+ '(create-lockfiles nil)
+ '(imenu-list-position 'left t)
+ '(imenu-list-size 30 t)
+ '(indent-tabs-mode nil)
+ '(inhibit-splash-screen t)
+ '(inhibit-startup-echo-area-message t)
+ '(inhibit-startup-message t)
+ '(inhibit-startup-screen t)
+ '(initial-scratch-message nil)
+ '(ivy-count-format "(%d/%d) ")
+ '(ivy-use-virtual-buffers t)
+ '(make-backup-files nil)
+ '(menu-bar-mode nil)
+ '(package-archives
+   '(("gnu" . "https://elpa.gnu.org/packages/")
+     ("melpa" . "https://melpa.org/packages/")
+     ("melpa-stable" . "http://stable.melpa.org/packages/")
+     ("ELPA" . "http://tromey.com/elpa/")
+     ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
- '(projectile-mode t nil (projectile)))
+   '(doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
+ '(projectile-mode t nil (projectile))
+ '(scroll-bar-mode nil)
+ '(show-paren-delay 0.1)
+ '(tab-width 4)
+ '(tool-bar-mode nil)
+ '(trauncate-lines t t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
