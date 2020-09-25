@@ -98,7 +98,18 @@
   ("M-x" . counsel-M-x)
   ("C-x C-c" . counsel-M-x)
   ("C-x C-f" . counsel-find-file)
-  ("C-x C-r" . counsel-recentf))
+  ("C-x C-r" . counsel-recentf)
+  ("C-s" . swiper-isearch)
+  ("M-y" . counsel-yank-pop)
+  ("<f1> f" . counsel-describe-function)
+  ("<f1> v" . counsel-describe-variable)
+  ("<f1> l" . counsel-find-library)
+  ("<f2> i" . counsel-info-lookup-symbol)
+  ("<f2> u" . counsel-unicode-char)
+  ("<f2> j" . counsel-set-variable)
+  ("C-x b" . ivy-switch-buffer)
+  ("C-c v" . ivy-push-view)
+  ("C-c V" . ivy-pop-view))
 
 (leaf magit
   :doc "A Git porcelain inside Emacs."
