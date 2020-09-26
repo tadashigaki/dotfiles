@@ -179,6 +179,20 @@
   :config
   (which-key-mode))
 
+(leaf projectile
+  :doc "Manage and navigate projects in Emacs easily"
+  :req "emacs-25.1" "pkg-info-0.4"
+  :tag "convenience" "project" "emacs>=25.1"
+  :added "2020-09-26"
+  :url "https://github.com/bbatsov/projectile"
+  :emacs>= 25.1
+  :ensure t
+  :config
+  (projectile-mode +1)
+  :bind
+  ("s-p" . projectile-command-map)
+  ("C-c p" . projectile-command-map))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
