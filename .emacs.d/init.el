@@ -193,6 +193,15 @@
   ("s-p" . projectile-command-map)
   ("C-c p" . projectile-command-map))
 
+(leaf neotree
+  :doc "A tree plugin like NerdTree for Vim"
+  :req "cl-lib-0.5"
+  :added "2020-09-26"
+  :url "https://github.com/jaypei/emacs-neotree"
+  :ensure t
+  :bind
+  ("<f8>" . neotree-toggle))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
