@@ -125,8 +125,7 @@
   :emacs>= 25.1
   :ensure t
   :bind
-  ("C-x g" . magit-status)
-  :after git-commit with-editor)
+  ("C-x g" . magit-status))
 
 (leaf flycheck
   :doc "On-the-fly syntax checking"
@@ -166,8 +165,19 @@
            (doom-modeline-major-mode-icon . t)
            (doom-modeline-major-mode-color-icon . t)
            (line-number-mode . 1)
-           (column-number-mode . 1))
-  :after (all-the-icons shrink-path))
+           (column-number-mode . 1)))
+
+
+(leaf which-key
+  :doc "Display available keybindings in popup"
+  :req "emacs-24.4"
+  :tag "emacs>=24.4"
+  :added "2020-09-25"
+  :url "https://github.com/justbur/emacs-which-key"
+  :emacs>= 24.4
+  :ensure t
+  :config
+  (which-key-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
