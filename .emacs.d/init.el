@@ -30,7 +30,6 @@
   (unless (package-installed-p 'leaf)
     (package-refresh-contents)
     (package-install 'leaf))
-
   (leaf leaf-keywords
     :ensure t
     :init
@@ -223,6 +222,62 @@
   :bind
   ("C-x o" . ace-window))
 
+(leaf lsp-mode
+  :doc "LSP mode"
+  :req "emacs-26.1" "dash-2.14.1" "dash-functional-2.14.1" "f-0.20.0" "ht-2.0" "spinner-1.7.3" "markdown-mode-2.3" "lv-0"
+  :tag "languages" "emacs>=26.1"
+  :added "2020-09-26"
+  :url "https://github.com/emacs-lsp/lsp-mode"
+  :emacs>= 26.1
+  :ensure t
+  :after spinner markdown-mode lv
+  :hook
+  (go-mode . lsp)
+  (rustic-mode . lsp)
+  (python-mode . lsp)
+  :config
+  (leaf lsp-ui
+    :doc "UI modules for lsp-mode"
+    :req "emacs-26.1" "dash-2.14" "dash-functional-1.2.0" "lsp-mode-6.0" "markdown-mode-2.3"
+    :tag "tools" "languages" "emacs>=26.1"
+    :added "2020-09-26"
+    :url "https://github.com/emacs-lsp/lsp-ui"
+    :emacs>= 26.1
+    :ensure t
+    :hook
+    (lsp-mode . lsp-ui-mode)
+    :after lsp-mode markdown-mode)
+  (leaf company-lsp
+    :doc "Company completion backend for lsp-mode."
+    :req "emacs-25.1" "lsp-mode-6.0" "company-0.9.0" "s-1.2.0" "dash-2.11.0"
+    :tag "emacs>=25.1"
+    :added "2020-09-26"
+    :url "https://github.com/tigersoldier/company-lsp"
+    :emacs>= 25.1
+    :ensure t
+    :after lsp-mode company))
+ 
+(leaf rustic
+  :doc "Rust development environment"
+  :req "emacs-26.1" "xterm-color-1.6" "dash-2.13.0" "s-1.10.0" "f-0.18.2" "projectile-0.14.0" "markdown-mode-2.3" "spinner-1.7.3" "let-alist-1.0.4" "seq-2.3" "ht-2.0"
+  :tag "languages" "emacs>=26.1"
+  :added "2020-09-26"
+  :emacs>= 26.1
+  :ensure t
+  :after xterm-color projectile markdown-mode spinner
+  :custom
+  ((rustic-format-on-save . t)))
+
+(leaf lsp-jedi
+  :doc "Lsp client plugin for Python Jedi Language Server"
+  :req "emacs-25.1" "lsp-mode-6.0"
+  :tag "ide" "jedi" "python" "tools" "language-server" "emacs>=25.1"
+  :added "2020-09-26"
+  :url "http://github.com/fredcamps/lsp-jedi"
+  :emacs>= 25.1
+  :ensure t
+  :after lsp-mode)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -256,7 +311,7 @@
      ("ELPA" . "http://tromey.com/elpa/")
      ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
+   '(company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
  '(projectile-mode t nil (projectile))
  '(scroll-bar-mode nil)
  '(show-paren-delay 0.1)
