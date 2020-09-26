@@ -167,7 +167,6 @@
            (line-number-mode . 1)
            (column-number-mode . 1)))
 
-
 (leaf which-key
   :doc "Display available keybindings in popup"
   :req "emacs-24.4"
@@ -202,6 +201,28 @@
   :bind
   ("<f8>" . neotree-toggle))
 
+(leaf avy
+  :doc "Jump to arbitrary positions in visible text and select text quickly."
+  :req "emacs-24.1" "cl-lib-0.5"
+  :tag "location" "point" "emacs>=24.1"
+  :added "2020-09-26"
+  :url "https://github.com/abo-abo/avy"
+  :emacs>= 24.1
+  :ensure t
+  :bind
+  ("C-:" . avy-goto-char-timer))
+
+(leaf ace-window
+  :doc "Quickly switch windows."
+  :req "avy-0.5.0"
+  :tag "location" "window"
+  :added "2020-09-26"
+  :url "https://github.com/abo-abo/ace-window"
+  :ensure t
+  :after avy
+  :bind
+  ("C-x o" . ace-window))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -209,7 +230,12 @@
  ;; If there is more than one, they won't work right.
  '(auto-save-default nil)
  '(auto-save-list-file-prefix nil)
+ '(column-number-mode 1)
  '(create-lockfiles nil)
+ '(doom-modeline-buffer-file-name-style 'truncate-with-project)
+ '(doom-modeline-icon t)
+ '(doom-modeline-major-mode-color-icon t)
+ '(doom-modeline-major-mode-icon t)
  '(imenu-list-position 'left t)
  '(imenu-list-size 30 t)
  '(indent-tabs-mode nil)
@@ -220,6 +246,7 @@
  '(initial-scratch-message nil)
  '(ivy-count-format "(%d/%d) ")
  '(ivy-use-virtual-buffers t)
+ '(line-number-mode 1)
  '(make-backup-files nil)
  '(menu-bar-mode nil)
  '(package-archives
@@ -229,7 +256,7 @@
      ("ELPA" . "http://tromey.com/elpa/")
      ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
+   '(ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
  '(projectile-mode t nil (projectile))
  '(scroll-bar-mode nil)
  '(show-paren-delay 0.1)
