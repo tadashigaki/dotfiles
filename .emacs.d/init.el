@@ -265,8 +265,10 @@
   :emacs>= 26.1
   :ensure t
   :after xterm-color projectile markdown-mode spinner
+  :hook
   :custom
-  ((rustic-format-on-save . t)))
+  (push 'rustic-clippy flycheck-checkers)
+  (rustic-format-trigger . 'on-save))
 
 (leaf lsp-jedi
   :doc "Lsp client plugin for Python Jedi Language Server"
@@ -291,6 +293,7 @@
  '(doom-modeline-icon t)
  '(doom-modeline-major-mode-color-icon t)
  '(doom-modeline-major-mode-icon t)
+ '(global-tab-line-mode t)
  '(imenu-list-position 'left t)
  '(imenu-list-size 30 t)
  '(indent-tabs-mode nil)
@@ -311,7 +314,7 @@
      ("ELPA" . "http://tromey.com/elpa/")
      ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
+   '(clippy company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
  '(projectile-mode t nil (projectile))
  '(scroll-bar-mode nil)
  '(show-paren-delay 0.1)
