@@ -265,7 +265,8 @@
   :emacs>= 26.1
   :ensure t
   :after xterm-color projectile markdown-mode spinner
-  :hook
+  :bind
+  ("C-c r" . rustic-cargo-run)
   :custom
   (push 'rustic-clippy flycheck-checkers)
   (rustic-format-trigger . 'on-save))
@@ -293,6 +294,15 @@
     (exec-path-from-shell-initialize)
     (exec-path-from-shell-copy-envs '("PATH" "GOENV_ROOT" "GOPATH" "GO15VENDOREXPERIMENT"))))
 
+(leaf open-junk-file
+  :doc "Open a junk (memo) file to try-and-error"
+  :tag "tools" "convenience"
+  :added "2020-10-15"
+  :url "http://www.emacswiki.org/cgi-bin/wiki/download/open-junk-file.el"
+  :ensure t
+  :bind
+  ("C-x j" . open-junk-file))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -306,6 +316,7 @@
  '(doom-modeline-icon t)
  '(doom-modeline-major-mode-color-icon t)
  '(doom-modeline-major-mode-icon t)
+ '(flycheck-checkers nil)
  '(global-tab-line-mode t)
  '(imenu-list-position 'left t)
  '(imenu-list-size 30 t)
@@ -327,8 +338,11 @@
      ("ELPA" . "http://tromey.com/elpa/")
      ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(open-junk-file exec-path-from-shell clippy company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
+   '(org-pomodoro open-junk-file exec-path-from-shell clippy company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
  '(projectile-mode t nil (projectile))
+ '(push nil t)
+ '(rustic-format-on-save t t)
+ '(rustic-format-trigger 'on-save)
  '(scroll-bar-mode nil)
  '(show-paren-delay 0.1)
  '(tab-width 4)
