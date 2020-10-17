@@ -9,6 +9,9 @@
 
 ;;; Code:
 
+;; byte compile
+;; emacs --batch -f batch-byte-compile init.el
+
 ;; this enables this running method
 ;;   emacs -q -l ~/.debug.emacs.d/init.el
 
@@ -63,8 +66,23 @@
 (leaf paren
   :doc "highlight matching paren"
   :tag "builtin"
+  :ensure t
   :custom ((show-paren-delay . 0.1))
   :global-minor-mode show-paren-mode)
+
+(leaf exec-path-from-shell
+  :doc "Get environment variables such as $PATH from the shell"
+  :req "emacs-24.1"
+  :tag "environment" "unix" "emacs>=24.1"
+  :added "2020-10-04"
+  :url "https://github.com/purcell/exec-path-from-shell"
+  ; :ensure t
+  :emacs>= 24.1
+  :ensure t
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)
+    (exec-path-from-shell-copy-envs '("PATH" "GOENV_ROOT" "GOPATH" "GO15VENDOREXPERIMENT"))))
 
 (leaf startup
   :custom
@@ -281,18 +299,18 @@
   :ensure t
   :after lsp-mode)
 
-(leaf exec-path-from-shell
-  :doc "Get environment variables such as $PATH from the shell"
-  :req "emacs-24.1"
-  :tag "environment" "unix" "emacs>=24.1"
-  :added "2020-10-04"
-  :url "https://github.com/purcell/exec-path-from-shell"
-  :emacs>= 24.1
-  :ensure t
-  :config
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)
-    (exec-path-from-shell-copy-envs '("PATH" "GOENV_ROOT" "GOPATH" "GO15VENDOREXPERIMENT"))))
+; (leaf exec-path-from-shell
+;   :doc "Get environment variables such as $PATH from the shell"
+;   :req "emacs-24.1"
+;   :tag "environment" "unix" "emacs>=24.1"
+;   :added "2020-10-04"
+;   :url "https://github.com/purcell/exec-path-from-shell"
+;   :ensure t
+;   :emacs>= 24.1
+;   :config
+;   (when (memq window-system '(mac ns x))
+;     (exec-path-from-shell-initialize)
+;     (exec-path-from-shell-copy-envs '("PATH" "GOENV_ROOT" "GOPATH" "GO15VENDOREXPERIMENT"))))
 
 (leaf open-junk-file
   :doc "Open a junk (memo) file to try-and-error"
@@ -302,6 +320,14 @@
   :ensure t
   :bind
   ("C-x j" . open-junk-file))
+
+(leaf org-pomodoro
+  :doc "Pomodoro implementation for org-mode."
+  :req "alert-0.5.10" "cl-lib-0.5"
+  :added "2020-10-15"
+  :url "https://github.com/lolownia/org-pomodoro"
+  :ensure t
+  :after alert)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
