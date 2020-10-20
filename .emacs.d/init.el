@@ -320,6 +320,18 @@
   :ensure t
   :after alert)
 
+(leaf web-mode
+  :doc "major mode for editing web templates"
+  :req "emacs-23.1"
+  :tag "languages" "emacs>=23.1"
+  :added "2020-10-20"
+  :url "http://web-mode.org"
+  :emacs>= 23.1
+  :ensure t
+  :mode
+  ("\\.html\\'")
+  ("\\.css\\'"))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -355,7 +367,7 @@
      ("ELPA" . "http://tromey.com/elpa/")
      ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(org-pomodoro open-junk-file exec-path-from-shell clippy company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode solarized-theme helm))
+   '(web-mode org-pomodoro open-junk-file exec-path-from-shell clippy company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode solarized-theme helm))
  '(projectile-mode t nil (projectile))
  '(push nil t)
  '(rustic-format-on-save t t)
