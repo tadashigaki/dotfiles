@@ -102,6 +102,8 @@
    (create-lockfiles . nil)
    (make-backup-files . nil))
   :config
+  (with-current-buffer "*scratch*" (emacs-lock-mode 'kill))
+  (with-current-buffer "*Messages*" (emacs-lock-mode 'kill))
   (global-display-line-numbers-mode))
 
 (leaf ivy
