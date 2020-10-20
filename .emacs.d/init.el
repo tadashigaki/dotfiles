@@ -346,6 +346,31 @@
   :mode
   ("\\.js\\'"))
 
+(leaf go-mode
+  :doc "Major mode for the Go programming language"
+  :tag "go" "languages"
+  :added "2020-10-20"
+  :url "https://github.com/dominikh/go-mode.el"
+  :ensure t)
+
+(leaf go-autocomplete
+  :doc "auto-complete-mode backend for go-mode"
+  :req "auto-complete-1.4.0"
+  :tag "languages"
+  :added "2020-10-20"
+  :ensure t
+  :after auto-complete)
+
+(leaf go-eldoc
+  :doc "eldoc for go-mode"
+  :req "emacs-24.3" "go-mode-1.0.0"
+  :tag "emacs>=24.3"
+  :added "2020-10-20"
+  :url "https://github.com/syohex/emacs-go-eldoc"
+  :emacs>= 24.3
+  :ensure t
+  :after go-mode)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -359,6 +384,8 @@
  '(doom-modeline-icon t)
  '(doom-modeline-major-mode-color-icon t)
  '(doom-modeline-major-mode-icon t)
+ '(emacs-lock-mode nil t)
+ '(exec-path-from-shell-check-startup-files nil)
  '(flycheck-checkers nil)
  '(global-tab-line-mode t)
  '(imenu-list-position 'left t)
@@ -381,7 +408,7 @@
      ("ELPA" . "http://tromey.com/elpa/")
      ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(js2-mode web-mode org-pomodoro open-junk-file exec-path-from-shell clippy company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode solarized-theme helm))
+   '(go-eldoc go-autocomplete js2-mode web-mode org-pomodoro open-junk-file exec-path-from-shell clippy company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode solarized-theme helm))
  '(projectile-mode t nil (projectile))
  '(push nil t)
  '(rustic-format-on-save t t)
@@ -390,7 +417,8 @@
  '(show-paren-delay 0.1)
  '(tab-width 4)
  '(tool-bar-mode nil)
- '(trauncate-lines t t))
+ '(trauncate-lines t t)
+ '(with-current-buffer nil t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
