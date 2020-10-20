@@ -285,6 +285,10 @@
   :after xterm-color projectile markdown-mode spinner
   :bind
   ("C-c r" . rustic-cargo-run)
+  :commands (rustic-mode)
+  :mode ("\\.rs\\'" . rustic-mode)
+  :init
+  (setq auto-mode-alist (delete '("\\.rs\\'" . rust-mode) auto-mode-alist))
   :custom
   (push 'rustic-clippy flycheck-checkers)
   (rustic-format-trigger . 'on-save))
@@ -298,19 +302,6 @@
   :emacs>= 25.1
   :ensure t
   :after lsp-mode)
-
-; (leaf exec-path-from-shell
-;   :doc "Get environment variables such as $PATH from the shell"
-;   :req "emacs-24.1"
-;   :tag "environment" "unix" "emacs>=24.1"
-;   :added "2020-10-04"
-;   :url "https://github.com/purcell/exec-path-from-shell"
-;   :ensure t
-;   :emacs>= 24.1
-;   :config
-;   (when (memq window-system '(mac ns x))
-;     (exec-path-from-shell-initialize)
-;     (exec-path-from-shell-copy-envs '("PATH" "GOENV_ROOT" "GOPATH" "GO15VENDOREXPERIMENT"))))
 
 (leaf open-junk-file
   :doc "Open a junk (memo) file to try-and-error"
@@ -364,7 +355,7 @@
      ("ELPA" . "http://tromey.com/elpa/")
      ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(org-pomodoro open-junk-file exec-path-from-shell clippy company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode rust-mode solarized-theme helm))
+   '(org-pomodoro open-junk-file exec-path-from-shell clippy company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode solarized-theme helm))
  '(projectile-mode t nil (projectile))
  '(push nil t)
  '(rustic-format-on-save t t)
