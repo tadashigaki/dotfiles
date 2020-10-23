@@ -380,6 +380,15 @@
   :mode ("\\.vue\\'" . vue-mode)
   :after mmm-mode vue-html-mode ssass-mode edit-indirect)
 
+(leaf yaml-mode
+  :doc "Major mode for editing YAML files"
+  :req "emacs-24.1"
+  :tag "yaml" "data" "emacs>=24.1"
+  :added "2020-10-24"
+  :emacs>= 24.1
+  :ensure t
+  :mode ("\\.ya?ml\\'" . yaml-mode))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -417,7 +426,7 @@
      ("ELPA" . "http://tromey.com/elpa/")
      ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(vue-mode go-eldoc go-autocomplete js2-mode web-mode org-pomodoro open-junk-file exec-path-from-shell clippy company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode solarized-theme helm))
+   '(yaml-mode vue-mode go-eldoc go-autocomplete js2-mode web-mode org-pomodoro open-junk-file exec-path-from-shell clippy company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode solarized-theme helm))
  '(projectile-mode t nil (projectile))
  '(push nil t)
  '(rustic-format-on-save t t)
