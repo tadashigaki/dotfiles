@@ -218,7 +218,8 @@
   :url "https://github.com/jaypei/emacs-neotree"
   :ensure t
   :bind
-  ("<f8>" . neotree-toggle))
+  ("<f8>" . neotree-toggle)
+  ("C-o" . neotree-toggle))
 
 (leaf avy
   :doc "Jump to arbitrary positions in visible text and select text quickly."
