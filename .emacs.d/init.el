@@ -104,7 +104,8 @@
   :config
   (with-current-buffer "*scratch*" (emacs-lock-mode 'kill))
   (with-current-buffer "*Messages*" (emacs-lock-mode 'kill))
-  (global-display-line-numbers-mode))
+  (global-display-line-numbers-mode)
+  (set-frame-parameter nil 'alpha 87))
 
 (leaf ivy
   :doc "Incremental Vertical completYon"
