@@ -390,6 +390,16 @@
   :ensure t
   :mode ("\\.ya?ml\\'" . yaml-mode))
 
+(leaf dockerfile-mode
+  :doc "Major mode for editing Docker's Dockerfiles"
+  :req "emacs-24" "s-1.12"
+  :tag "emacs>=24"
+  :added "2020-11-18"
+  :url "https://github.com/spotify/dockerfile-mode"
+  :emacs>= 24
+  :ensure t
+  :mode ("Dockerfile\\'" . dockerfile-mode))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -427,7 +437,7 @@
      ("ELPA" . "http://tromey.com/elpa/")
      ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(ripgrep yaml-mode vue-mode go-eldoc go-autocomplete js2-mode web-mode org-pomodoro open-junk-file exec-path-from-shell clippy company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode solarized-theme helm))
+   '(dockerfile-mode yaml-mode vue-mode go-eldoc go-autocomplete js2-mode web-mode org-pomodoro open-junk-file exec-path-from-shell clippy company-jedi diminish company-lsp company lsp-ui ace-window avy doom-modeline doom doom-themes transient-dwim counsel macrostep leaf-tree leaf-convert ivy eldoc ## racer quickrun helm-ag flycheck rustic which-key neotree projectile magit use-package lsp-mode solarized-theme helm))
  '(projectile-mode t nil (projectile))
  '(push nil t)
  '(rustic-format-on-save t t)
