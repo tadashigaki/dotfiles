@@ -105,7 +105,12 @@
   (with-current-buffer "*scratch*" (emacs-lock-mode 'kill))
   (with-current-buffer "*Messages*" (emacs-lock-mode 'kill))
   (global-display-line-numbers-mode)
-  (set-frame-parameter nil 'alpha 87))
+  (set-frame-parameter nil 'alpha 87)
+  :bind
+  ("<C-S-up>" . shrink-window)
+  ("<C-S-down>" . enlarge-window)
+  ("<C-S-right>" . enlarge-window-horizontally)
+  ("<C-S-left>" . shrink-window-horizontally))
 
 (leaf ivy
   :doc "Incremental Vertical completYon"
