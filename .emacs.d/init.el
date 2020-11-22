@@ -100,17 +100,18 @@
    (auto-save-default . nil)
    (auto-save-list-file-prefix . nil)
    (create-lockfiles . nil)
-   (make-backup-files . nil))
+   (make-backup-files . nil)
+   (desktop-save-mode . 1))
   :config
   (with-current-buffer "*scratch*" (emacs-lock-mode 'kill))
   (with-current-buffer "*Messages*" (emacs-lock-mode 'kill))
   (global-display-line-numbers-mode)
   (set-frame-parameter nil 'alpha 87)
   :bind
-  ("<C-S-up>" . shrink-window)
-  ("<C-S-down>" . enlarge-window)
-  ("<C-S-right>" . enlarge-window-horizontally)
-  ("<C-S-left>" . shrink-window-horizontally))
+  ("<M-up>" . enlarge-window)
+  ("<M-down>" . shrink-window)
+  ("<M-right>" . enlarge-window-horizontally)
+  ("<M-left>" . shrink-window-horizontally))
 
 (leaf ivy
   :doc "Incremental Vertical completYon"
