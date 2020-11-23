@@ -427,6 +427,16 @@
   :ensure t
   :after gh)
 
+(leaf markdown-mode
+  :doc "Major mode for Markdown-formatted text"
+  :req "emacs-25.1"
+  :tag "itex" "github flavored markdown" "markdown" "emacs>=25.1"
+  :added "2020-11-23"
+  :url "https://jblevins.org/projects/markdown-mode/"
+  :emacs>= 25.1
+  :ensure t
+  :mode ("\\.md\\'" . markdown-mode)))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
