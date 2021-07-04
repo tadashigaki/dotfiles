@@ -144,6 +144,11 @@ export PATH="$HOME/.anyenv/bin:$PATH""
 alias k=kubectl
 
 # --------------------
+# Trans Shell
+# --------------------
+alias t="trans -b :ja "
+
+# --------------------
 # ZSH
 # --------------------
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
