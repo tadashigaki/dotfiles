@@ -123,17 +123,6 @@ export PATH=$GOPATH/bin:$PATH
 export GO15VENDOREXPERIMENT=1
 
 # --------------------
-# google-cloud-sdk
-# --------------------
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f $HOME'/google-cloud-sdk/path.zsh.inc' ]; then . $HOME'/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then . $HOME'/google-cloud-sdk/completion.zsh.inc'; fi
-
-export CLOUDSDK_PYTHON=/usr/bin/python3
-
-# --------------------
 # MySQL Client
 # --------------------
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
@@ -160,6 +149,3 @@ if [ -e /usr/local/share/zsh-completions ]; then
 fi
 autoload -Uz compinit
 compinit -u
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/Cellar/tfenv/1.0.1/versions/0.12.29/terraform terraform
