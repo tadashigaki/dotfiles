@@ -1,9 +1,4 @@
-.emacs.d/auto-save-list
-.emacs.d/.cask
-.emacs.d/el-get
-.emacs.d/elisp
-.emacs.d/elpa
-.emacs.d/eshell
-.emacs.d/recentf
-.emacs.d/session*
-.emacs.d/snippets
+.emacs.d/*
+!.emacs.d/init.el
+
+.DS_Store
