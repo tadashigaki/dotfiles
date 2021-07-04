@@ -1,12 +1,4 @@
 # --------------------
-# PATH
-# --------------------
-export PATH=$HOME/.cask/bin:$PATH
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=$HOME/.cargo/bin:$PATH
-export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
-
-# --------------------
 # hist
 # --------------------
 HISTSIZE=100000
@@ -94,7 +86,6 @@ PROMPT=$PROMPT' ${vcs_info_msg_0_}> '
 # tmux
 # --------------------
 if [ "$SHLVL" = 1 ]; then tmux attach || tmux new; fi
-export TERM=xterm-256color
 
 # --------------------
 # env
@@ -114,13 +105,9 @@ man() {
 # --------------------
 # GOLANG
 # --------------------
-export PATH=/usr/local/bin/go/bin:$PATH
 export GOENV_ROOT=$HOME/.goenv
 export PATH=$GOENV_ROOT/bin:$PATH
 eval "$(goenv init -)"
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
-export GO15VENDOREXPERIMENT=1
 
 # --------------------
 # tfschema
@@ -136,21 +123,10 @@ if [ -f $HOME'/google-cloud-sdk/path.zsh.inc' ]; then . $HOME'/google-cloud-sdk/
 # The next line enables shell command completion for gcloud.
 if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then . $HOME'/google-cloud-sdk/completion.zsh.inc'; fi
 
-export CLOUDSDK_PYTHON=/usr/bin/python3
-
-# --------------------
-# MySQL Client
-# --------------------
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-
-# --------------------
-# Rust
-# --------------------
-export PATH="$HOME/.cargo/bin:$PATH"
-
 # --------------------
 # anyenv
 # --------------------
+export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
 # --------------------
@@ -167,3 +143,5 @@ compinit -u
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/Cellar/tfenv/1.0.1/versions/0.12.29/terraform terraform
+
+complete -o nospace -C /Users/akamatadashi/.anyenv/envs/tfenv/versions/0.14.3/terraform terraform

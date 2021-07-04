@@ -107,6 +107,7 @@
   (with-current-buffer "*Messages*" (emacs-lock-mode 'kill))
   (global-display-line-numbers-mode)
   (set-frame-parameter nil 'alpha 87)
+  (desktop-save t)
   :bind
   ("<M-up>" . enlarge-window)
   ("<M-down>" . shrink-window)
@@ -435,7 +436,7 @@
   :url "https://jblevins.org/projects/markdown-mode/"
   :emacs>= 25.1
   :ensure t
-  :mode ("\\.md\\'" . markdown-mode)))
+  :mode ("\\.md\\'" . markdown-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

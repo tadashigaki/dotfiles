@@ -1,6 +1,7 @@
 if [ -f ~/.bashrc ]; then
         . ~/.bashrc
 fi
+
 export PATH=/Users/tadashigaki/.go/bin:/usr/local/bin/go/bin:/Users/tadashigaki/.cargo/bin:/Users/tadashigaki/.nodebrew/current/bin:/Users/tadashigaki/.cask/bin:/Users/tadashigaki/.cargo/bin:/Users/tadashigaki/.nodebrew/current/bin:/Users/tadashigaki/.cask/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Wireshark.app/Contents/MacOS:/Library/Tex/texbin
 
 # The next line updates PATH for the Google Cloud SDK.

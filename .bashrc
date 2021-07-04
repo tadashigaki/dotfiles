@@ -1,10 +1,10 @@
 # --------------------
 # PATH
 # --------------------
-export PATH=$HOME/.cask/bin:$PATH
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=$HOME/.cargo/bin:$PATH
-export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
+# export PATH=$HOME/.cask/bin:$PATH
+# export PATH=$HOME/.nodebrew/current/bin:$PATH
+# export PATH=$HOME/.cargo/bin:$PATH
+# export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
 
 # --------------------
 # hist
@@ -88,14 +88,14 @@ if [ "$(uname)" == "Darwin" ]; then
     source /usr/local/etc/bash_completion.d/git-prompt.sh
     source /usr/local/etc/bash_completion.d/git-completion.bash
     GIT_PS1_SHOWDIRTYSTATE=true
-    export PS1='\[\033[37m\][\[\033[36m\]\u\[\033[37m\]@\h \[\033[32m\]\W\[\033[37m\]]\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+    # export PS1='\[\033[37m\][\[\033[36m\]\u\[\033[37m\]@\h \[\033[32m\]\W\[\033[37m\]]\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 fi
 
 # --------------------
 # tmux
 # --------------------
-if [ "$SHLVL" = 1 ]; then tmux attach || tmux new; fi
-export TERM=xterm-256color
+# if [ "$SHLVL" = 1 ]; then tmux attach || tmux new; fi
+# export TERM=xterm-256color
 
 # --------------------
 # env
@@ -115,14 +115,16 @@ man() {
 # --------------------
 # GOLANG
 # --------------------
-export PATH=/usr/local/bin/go/bin:$PATH
-export GOENV_ROOT=$HOME/.goenv
-export PATH=$GOENV_ROOT/bin:$PATH
-eval "$(goenv init -)"
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
-export GO15VENDOREXPERIMENT=1
+# export PATH=/usr/local/bin/go/bin:$PATH
+# export GOENV_ROOT=$HOME/.goenv
+# export PATH=$GOENV_ROOT/bin:$PATH
+# eval "$(goenv init -)"
+# export GOPATH=$HOME/go
+# export PATH=$GOPATH/bin:$PATH
+# export GO15VENDOREXPERIMENT=1
 
 complete -C /usr/local/bin/tfschema tfschema
 
 complete -C /usr/local/Cellar/tfenv/1.0.1/versions/0.12.29/terraform terraform
+
+complete -C /Users/akamatadashi/.anyenv/envs/tfenv/versions/0.14.3/terraform terraform
