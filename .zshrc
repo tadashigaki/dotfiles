@@ -139,6 +139,11 @@ eval "$(anyenv init -)
 export PATH="$HOME/.anyenv/bin:$PATH""
 
 # --------------------
+# kubectl
+# --------------------
+alias k=kubectl
+
+# --------------------
 # ZSH
 # --------------------
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
