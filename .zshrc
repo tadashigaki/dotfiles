@@ -123,11 +123,6 @@ export PATH=$GOPATH/bin:$PATH
 export GO15VENDOREXPERIMENT=1
 
 # --------------------
-# tfschema
-# --------------------
-# complete -o nospace -C /usr/local/bin/tfschema tfschema
-
-# --------------------
 # google-cloud-sdk
 # --------------------
 # The next line updates PATH for the Google Cloud SDK.
@@ -160,11 +155,11 @@ export PATH="$HOME/.anyenv/bin:$PATH""
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
-fpath=(/usr/local/share/zsh-completions $fpath)
-
+if [ -e /usr/local/share/zsh-completions ]; then
+    fpath=(/usr/local/share/zsh-completions $fpath)
+fi
 autoload -Uz compinit
 compinit -u
-
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/Cellar/tfenv/1.0.1/versions/0.12.29/terraform terraform
